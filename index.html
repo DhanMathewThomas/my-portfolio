@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dhan Mathew Thomas - Portfolio</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%); min-height: 100vh; display: flex; justify-content: center; padding: 20px; margin: 0; }
+        .container { background: white; width: 100%; max-width: 500px; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        h1 { text-align: center; color: #333; }
+        .subtitle { text-align: center; color: #28a745; font-weight: bold; margin-bottom: 5px; }
+        .info { text-align: center; font-size: 0.9em; color: #666; margin-bottom: 20px; }
+        .project-card { border-top: 2px solid #eee; padding-top: 20px; margin-top: 20px; }
+        input { width: 70%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        button { padding: 10px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        ul { list-style: none; padding: 0; }
+        li { background: #f9f9f9; border-bottom: 1px solid #eee; padding: 10px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+        .delete-btn { color: red; cursor: pointer; font-weight: bold; }
+        .pdf-link { display: inline-block; margin-top: 15px; background: #007bff; color: white; padding: 10px; text-decoration: none; border-radius: 5px; width: 100%; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Dhan Mathew Thomas</h1>
+    <p class="subtitle">I am a developer</p>
+    <p class="info">9th Grade Student, Kerala<br>
+    Contact: <a href="mailto:dhanmathewthomas1243@gmail.com">dhanmathewthomas1243@gmail.com</a></p>
+
+    <div class="project-card">
+        <h2>My To-Do List</h2>
+        <input type="text" id="taskInput" placeholder="Add a new task...">
+        <button onclick="addTask()">Add</button>
+        <ul id="taskList"></ul>
+    </div>
+
+    <div class="project-card">
+        <h2>Python Digital Notepad</h2>
+        <p>A GUI application built with Python and Tkinter.</p>
+        <a href="Dhan_Notepad_Code.pdf" class="pdf-link" download>Download Python Code (PDF)</a>
+    </div>
+</div>
+
+<script>
+    function addTask() {
+        const input = document.getElementById('taskInput');
+        if (input.value === "") return;
+        const li = document.createElement('li');
+        li.innerHTML = `${input.value} <span class="delete-btn" onclick="this.parentElement.remove()">X</span>`;
+        document.getElementById('taskList').appendChild(li);
+        input.value = "";
+    }
+</script>
+
+</body>
+</html>
